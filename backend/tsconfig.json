@@ -33,7 +33,8 @@
   },
   "include": [
     "src/**/*",
-    "config/*"
+    "config/*",
+    "routes/*"
   ],
   "exclude": [
     "node_modules"

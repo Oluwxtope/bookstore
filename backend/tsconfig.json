@@ -33,7 +33,7 @@
   },
   "include": [
     "src/**/*",
-    "config/*.json"
+    "config/*"
   ],
   "exclude": [
     "node_modules"

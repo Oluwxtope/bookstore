@@ -34,7 +34,9 @@
   "include": [
     "src/**/*",
     "config/*",
-    "routes/*"
+    "routes/*",
+    "controllers/*",
+    "models/*"
   ],
   "exclude": [
     "node_modules"

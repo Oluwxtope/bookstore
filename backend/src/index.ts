@@ -1,7 +1,7 @@
 import express from "express";
 import config from "./../config/config.js";
 import mongoose from "mongoose";
-import { router } from "./../routes/routes.js";
+import { booksRoute } from "../routes/booksRoute.js";
 
 const db = config.database.url
 
@@ -18,7 +18,8 @@ mongoose
 const app = express();
 const port = config.server.port
 
-app.use(router);
+app.use(express.json())
+app.use("/books", booksRoute);
 
 app.listen(port, () => {
     console.log(`Server listening on http://localhost:${port}`)

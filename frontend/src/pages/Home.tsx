@@ -1,27 +1,34 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "./../components/Spinner";
 import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
+import { Book, Books } from "../types/types";
 
 const Home = () => {
-  const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState<Books>({
+        data: []
+  });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("http://localhost:3000/books")
+    const fetchBooks = async () => {
+      setLoading(true);
+      axios
+        .get("http://localhost:3000/books")
         .then((response) => {
-          console.log(response)
-        setBooks(response.data.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+          console.log(response);
+          setBooks(response.data.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    fetchBooks();
   }, []);
 
   return (
@@ -50,8 +57,8 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {books.map((book, index) => (
-              <tr key={book._id} className="h-8">
+            {books.data.map((book: Book, index: number) => (
+              <tr key={book["_id"]} className="h-8">
                 <td className="border border-slate-700 rounded-md text-center">
                   {index + 1}
                 </td>

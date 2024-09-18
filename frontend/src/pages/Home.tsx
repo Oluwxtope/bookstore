@@ -40,7 +40,7 @@ const Home = () => {
         </Link>
       </div>
       {loading ? (
-        <Spinner />
+        <Spinner loading={loading} />
       ) : (
         <table className="w-full border-separate border-spacing-2">
           <thead>

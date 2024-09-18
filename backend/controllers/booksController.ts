@@ -3,10 +3,12 @@ import { Book } from "../models/bookModel.js";
 
 const getBooks = (async (req: express.Request, res: express.Response) => {
     try {
-        const { id } = req.params
-        const books = await Book.findById(id);
+        const books = await Book.find({});
 
-        return res.status(200).json({books});
+        return res.status(200).send({
+            count: books.length,
+            data: books
+        });
     } catch (err) {
         if (err instanceof Error) {
             console.log(err);
@@ -17,12 +19,10 @@ const getBooks = (async (req: express.Request, res: express.Response) => {
 
 const getBook = (async (req: express.Request, res: express.Response) => {
     try {
-        const books = await Book.find({});
+        const { id } = req.params
+        const books = await Book.findById(id);
 
-        return res.status(200).json({
-            count: books.length,
-            data: books
-        });
+        return res.status(200).send({books});
     } catch (err) {
         if (err instanceof Error) {
             console.log(err);

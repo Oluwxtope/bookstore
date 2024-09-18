@@ -21,14 +21,16 @@ const port = config.server.port
 
 app.use(express.json())
 
-app.use(
-    cors({
-        origin: "https://localhost:3000",
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type"]
+app.use(cors()); // Allow All Origins with Default of cors(*) for testing
+
+// app.use(
+//     cors({
+//         origin: "https://localhost:3000",
+//         methods: ["GET", "POST", "PUT", "DELETE"],
+//         allowedHeaders: ["Content-Type"]
         
-    })
-);
+//     })
+// );
 
 app.use("/books", booksRoute);
 

@@ -1,6 +1,2 @@
-backend/node_modules/
-backend/config/
-backend/dist/
-backend/eslint.config.js
 .vscode/
 .DS_Store

@@ -1,10 +1,10 @@
-export interface Book {
+export type Book = {
     _id: string;
     title: string;
     author: string;
     publishedYear: number;
 };
 
-export interface Books {
+export type Books = {
     data: Book[];
 }

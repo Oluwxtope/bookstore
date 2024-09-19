@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Book } from "../types/types";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import BackButton from "../components/BackButton/BackButton";
 import Spinner from "../components/Spinner/Spinner";
@@ -14,6 +14,7 @@ const ShowBook = () => {
   });
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -33,6 +34,10 @@ const ShowBook = () => {
     fetchBook();
   }, [id]);
 
+  const handleEditBook = () => {
+    navigate(`/books/edit/${id}`);
+  }
+
   return (
     <div className="p-4">
       <BackButton destination={"/"} />
@@ -41,23 +46,24 @@ const ShowBook = () => {
         <Spinner loading={loading} />
       ) : (
         <div className="flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4">
-            <div className="my-4">
-              <span className="text-xl mr-4 text-gray-500">Id</span>
-              <span>{book._id}</span>
-            </div>
-            <div className="my-4">
-              <span className="text-xl mr-4 text-gray-500">Title</span>
-              <span>{book.title}</span>
-            </div>
-            <div className="my-4">
-              <span className="text-xl mr-4 text-gray-500">Author</span>
-              <span>{book.author}</span>
-            </div>
-            <div className="my-4">
-              <span className="text-xl mr-4 text-gray-500">Published Year</span>
-              <span>{book.publishedYear}</span>
-            </div>
-            {/* <div className="my-4">
+          <div className="my-4">
+            <span className="text-xl mr-4 text-gray-500">Id</span>
+            <span>{book._id}</span>
+          </div>
+          <div className="my-4">
+            <span className="text-xl mr-4 text-gray-500">Title</span>
+            <span>{book.title}</span>
+          </div>
+          <div className="my-4">
+            <span className="text-xl mr-4 text-gray-500">Author</span>
+            <span>{book.author}</span>
+          </div>
+          <div className="my-4">
+            <span className="text-xl mr-4 text-gray-500">Published Year</span>
+            <span>{book.publishedYear}</span>
+          </div>
+          <button className="p-2 bg-sky-300 m-8" onClick={handleEditBook}>Edit Book</button>
+          {/* <div className="my-4">
               <span className="text-xl mr-4 text-gray-500">Created Time</span>
               <span>{new Date(book.createdAt).toString()}</span>
             </div>

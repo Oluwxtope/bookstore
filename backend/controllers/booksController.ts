@@ -20,9 +20,9 @@ const getBooks = (async (req: express.Request, res: express.Response) => {
 const getBook = (async (req: express.Request, res: express.Response) => {
     try {
         const { id } = req.params
-        const books = await Book.findById(id);
+        const book = await Book.findById(id);
 
-        return res.status(200).send({books});
+        return res.status(200).send({book});
     } catch (err) {
         if (err instanceof Error) {
             console.log(err);

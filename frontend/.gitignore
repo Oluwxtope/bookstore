@@ -25,3 +25,5 @@ dist-ssr
 
 # Others
 /eslint.config.js
+
+*storybook.log

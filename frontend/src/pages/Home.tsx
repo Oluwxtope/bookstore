@@ -20,7 +20,7 @@ const Home = () => {
         .get("http://localhost:3000/books")
         .then((response) => {
           console.log(response);
-          setBooks(response.data.data);
+          setBooks(response.data);
           setLoading(false);
         })
         .catch((err) => {

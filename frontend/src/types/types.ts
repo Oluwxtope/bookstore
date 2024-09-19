@@ -1,8 +1,8 @@
 export type Book = {
-    _id: string;
+    _id?: string;
     title: string;
     author: string;
-    publishedYear: number;
+    publishedYear: number | "";
 };
 
 export type Books = {

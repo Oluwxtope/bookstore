@@ -1,9 +1,8 @@
-
-# Welcome to Bookstore
+# Welcome to Bookstore 📚
 
 Bookstore is a full-stack web application designed to help you manage and track the unique books in your library. With its robust CRUD (Create, Read, Update, Delete) functionality, Bookstore allows you to efficiently manage your collection by adding new books, viewing details, updating information, and removing books from your library.
 
-## Technologies Used
+## Technologies Used 🛠️
 
 This project leverages a modern stack of technologies to ensure scalability, performance, and a great developer experience:
 
@@ -26,7 +25,7 @@ This project leverages a modern stack of technologies to ensure scalability, per
 
 By integrating these technologies, Bookstore ensures a robust, maintainable, and scalable application that can be easily extended with additional features in the future.
 
-## How to Set Up and Demo the Project
+## How to Set Up and Demo the Project 🚀
 
 Follow these steps to clone, set up, and run the Bookstore application on your local machine:
 
@@ -89,7 +88,7 @@ pnpm dev
 -   Visit [http://localhost:3001](http://localhost:3001) in your web browser to view and interact with the Bookstore application.
 
 
-## Storybook
+## Storybook 📖
 
 Storybook provides an interactive environment to view and test individual components used within the project. Follow these steps to launch Storybook:
 
